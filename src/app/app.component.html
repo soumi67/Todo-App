@@ -1,0 +1,50 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+<div class="heading-class container">
+  <h1 class="center">Todos</h1>
+</div>
+<form >
+  <mat-card class="small">
+    <mat-card-title>New Todo</mat-card-title>
+    <mat-card-actions align="end">
+      <mat-form-field class="full">
+        <input type="text" #txt matInput placeholder="todolist"  required [formControl]="mintext">
+        <mat-error *ngIf="mintext.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <button mat-flat-button class="butt-width" (click)="Add(txt.value) ">+Add</button>
+    </mat-card-actions>
+   
+  </mat-card>
+</form >
+<section class="section">
+    <div class="todo-item" *ngFor="let check of checkbox let desc of description let item of text ">
+         <div class="input-box" *ngIf="item?.length > 3">
+            <input type="checkbox" name="checkitem">
+            <ul>
+              <li>{{item}}
+                <div class="end">
+                  <a (click)="openDialog(item)" ><mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon>  </a>
+                  <a (click)="deletetodo(item)"><mat-icon aria-hidden="false" aria-label="Example home icon" >delete</mat-icon>  </a>
+                </div>
+              </li>
+              
+                
+              
+            </ul>
+         </div>     
+    </div>
+</section>
+
+
+
+
+
+<router-outlet></router-outlet>

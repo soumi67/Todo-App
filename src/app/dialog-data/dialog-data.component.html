@@ -1,0 +1,13 @@
+<form >
+      <mat-card class="small">
+        <mat-card-title>Edit Todo</mat-card-title>
+        <mat-card-actions align="end">
+          <mat-form-field class="full">
+            <input type="text" matInput required [formControl]="mintext"  [(ngModel)]="data.text" name="text">
+            <mat-error *ngIf="mintext.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <button mat-button mat-dialog-close>Cancel</button>
+          <button mat-flat-button class="butt-width"[mat-dialog-close]="data.text" cdkFocusInitial>Edit</button>
+        </mat-card-actions>
+      </mat-card>
+  </form >
